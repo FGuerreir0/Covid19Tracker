@@ -1,0 +1,109 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.particlesJs{
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250,250,250, 0.1);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  top: 0;
+}
+
+.information_box{
+  margin-top: 10%;;
+  text-align: center;
+  color-adjust: exact;
+  
+}
+
+.information_box > h1{
+font-size: 7rem;
+margin-bottom: 50px;
+}
+
+.information_box > p{
+  font-size: 2rem;
+  }
+
+  .details_button{
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+  }
+
+
+a {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+
+
+/* THE ROUND PSEUDO-ELEMENT HOVER STYLES */
+.round,
+.highlight {
+  max-width: 960px;
+  margin:0 auto;
+}
+
+.round a {
+  color: rgb(0, 0, 0);
+}
+
+.round .button {
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgb(0, 0, 0);
+  transition: color .5s;
+}
+
+.round .button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: rgba(0, 0, 0, 1);
+  height: 150px;
+  width: 360px;
+  border-radius: 50%;
+}
+
+.round .button:hover {
+  color: rgb(255, 255, 255);
+}
+
+.round .button:nth-child(1):before {
+  left: -30px;
+  bottom: 100%;
+  transition: all .7s;
+}
+
+.round .button:nth-child(1):hover:before {
+  bottom: -50px;
+}
+
+.round .button:active {
+  color: rgb(255, 255, 255);
+  background: rgb(255, 0, 0);
+  transition: all .3s;
+}
+
+
+  
