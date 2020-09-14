@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,42 +5,64 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-.particlesJs{
+.particlesJs {
   position: absolute;
   z-index: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(250,250,250, 0.1);
+  background-color: rgba(250, 250, 250, 0.1);
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   top: 0;
 }
 
-.information_box{
-  margin-top: 10%;;
+.information_box {
+  height: 75vh;
+  margin-top: 3%;
   text-align: center;
   color-adjust: exact;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div > h1 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+  }
+
+  div > h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
 }
 
-.information_box > h1{
-font-size: 7rem;
-margin-bottom: 50px;
-}
-
-.information_box > p{
+.information_details {
+  padding-bottom: 30px;
+  background-color: rgba(73, 73, 73, 0.1);
   font-size: 2rem;
-  }
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 25px;
 
-  .details_button{
-    margin-top: 50px;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
+  .information_sub_title {
+    background-color: black;
+    color: white;
+    padding: 7px 0;
+    margin-bottom: 20px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
   }
+}
 
+.details_button {
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 2;
+}
 
 a {
   color: #000;
@@ -50,13 +71,11 @@ a {
   font-size: 2rem;
 }
 
-
-
 /* THE ROUND PSEUDO-ELEMENT HOVER STYLES */
 .round,
 .highlight {
   max-width: 960px;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .round a {
@@ -72,11 +91,11 @@ a {
   position: relative;
   overflow: hidden;
   border: 2px solid rgb(0, 0, 0);
-  transition: color .5s;
+  transition: color 0.5s;
 }
 
 .round .button:before {
-  content: "";
+  content: '';
   position: absolute;
   z-index: -1;
   background: rgba(0, 0, 0, 1);
@@ -92,7 +111,7 @@ a {
 .round .button:nth-child(1):before {
   left: -30px;
   bottom: 100%;
-  transition: all .7s;
+  transition: all 0.7s;
 }
 
 .round .button:nth-child(1):hover:before {
@@ -102,8 +121,5 @@ a {
 .round .button:active {
   color: rgb(255, 255, 255);
   background: rgb(255, 0, 0);
-  transition: all .3s;
+  transition: all 0.3s;
 }
-
-
-  
