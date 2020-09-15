@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import '../App.scss';
+import './styles.scss';
+
+//IMPORT COMPONENTS
+import World from '../World/index';
+import Country from '../Country/index';
 
 //IMPORT SERVICE
-import { allData } from '../services/diseaseApi';
-import { getUser } from '../services/userCountry';
+import { getUser } from '../../services/userCountry';
 
 //IMPORT NPM PACKAGES
 import Particles from 'react-particles-js';
@@ -13,25 +16,16 @@ import FlagIconFactory from 'react-flag-icon-css';
 const FlagIcon = FlagIconFactory(React, { useCssModules: false });
 
 export default function App() {
-  const [geral, setgeral] = useState({});
   const [userCountry, setUserCountry] = useState({});
   const [userCountryCode, setUserCountryCode] = useState({});
 
   useEffect(() => {
-    allData()
-      .then((all) => {
-        setgeral(all);
-        console.log(all);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
     getUser()
       .then((userData) => {
-        setUserCountry(userData);
+        setUserCountry(userData.country_name);
+        console.log(userCountry);
         setUserCountryCode(userData.country_code.toLowerCase());
-        console.log(userData);
+        //console.log(userData);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -43,7 +37,7 @@ export default function App() {
         params={{
           particles: {
             number: {
-              value: 30,
+              value: 25,
               density: {
                 enable: true,
                 value_area: 800,
@@ -81,9 +75,9 @@ export default function App() {
             },
             modes: {
               repulse: {
-                distance: 100,
+                distance: 200,
                 duration: 0.3,
-                speed: 0.1,
+                speed: 0.2,
               },
             },
           },
@@ -95,44 +89,15 @@ export default function App() {
           <h1>Covid-19 Tracker</h1>
           {userCountryCode.length > 0 && userCountry && (
             <h2>
-              Welcome user from {userCountry.country_name}!{' '}
-              <FlagIcon code={userCountryCode} size={'lg'} />
+              Welcome user from {userCountry}! <FlagIcon code={userCountryCode} size={'lg'} />
             </h2>
           )}
         </div>
-        <div className='information_details'>
-          <p className='information_sub_title'>Worlwide</p>
-          <div>
-            <p>
-              <strong>Total Cases: </strong> {geral.cases}
-            </p>
-            <p>
-              <strong>Recovered: </strong>
-              {geral.recovered}
-            </p>
-            <p>
-              <strong>Deaths: </strong>
-              {geral.deaths}
-            </p>
-          </div>
-        </div>
 
-        <div className='information_details'>
-          <p className='information_sub_title'>{userCountry.country_name}</p>
-          <div>
-            <p>
-              <strong>Total Cases: </strong> {geral.cases}
-            </p>
-            <p>
-              <strong>Recovered: </strong>
-              {geral.recovered}
-            </p>
-            <p>
-              <strong>Deaths: </strong>
-              {geral.deaths}
-            </p>
-          </div>
-        </div>
+        <World />
+        {userCountry.length > 0 && <Country userCountry={userCountry} />}
+
+        {/* COLOCAR UM ELSE CASO NÃO FAÇA LOCALIZAÇÃO DE DISPOSITIVO */}
       </div>
     </div>
   );

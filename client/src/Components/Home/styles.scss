@@ -1,0 +1,77 @@
+.particlesJs {
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 250, 250, 0.1);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  top: 0;
+}
+
+.information_box {
+  height: 75vh;
+  margin-top: 3%;
+  text-align: center;
+  color-adjust: exact;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div > h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+  }
+
+  div > h2 {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+  }
+}
+
+.information_details {
+  padding-bottom: 30px;
+  background-color: rgba(73, 73, 73, 0.1);
+  font-size: 1.3rem;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 25px;
+
+  .information_sub_title {
+    background-color: black;
+    color: white;
+    padding: 7px 0;
+    margin-bottom: 20px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+  }
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  .grid-item {
+    text-align: center;
+    p {
+      font-size: 1rem;
+    }
+    .big_number {
+      margin: 9px 0 2px 0;
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .grid_container {
+    grid-template-columns: auto auto;
+  }
+
+  .grid-item {
+    margin: 15px;
+  }
+}
