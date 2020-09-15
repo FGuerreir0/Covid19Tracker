@@ -38,6 +38,7 @@
   margin: 0 auto;
   margin-bottom: 20px;
   border-radius: 25px;
+  z-index: 2;
 
   .information_sub_title {
     background-color: black;
@@ -46,6 +47,18 @@
     margin-bottom: 20px;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
+
+    select {
+      background-color: black;
+      color: red;
+      border-color: red;
+      font-size: 16px;
+    }
+    select:hover {
+      background-color: white;
+      color: black;
+      border-color: white;
+    }
   }
 }
 

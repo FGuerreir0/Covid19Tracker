@@ -12,6 +12,7 @@ export default function Country(props) {
     console.log(props.userCountry);
     getCountryData(country)
       .then((countryData) => {
+        console.log(countryData);
         setcountryData(countryData);
       })
       .catch((error) => console.log(error));
@@ -19,7 +20,17 @@ export default function Country(props) {
 
   return (
     <div className='information_details'>
-      <p className='information_sub_title'>{country}</p>
+      <div className='information_sub_title'>
+        <p>
+          {country}{' '}
+          <select style={{ width: '16px', marginLeft: '2px' }}>
+            <option>Something</option>
+            <option>Other thing</option>
+            <option>The last option</option>
+          </select>
+          ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        </p>
+      </div>
       <div className='grid_container'>
         <div className='grid-item'>
           <div>
