@@ -23,7 +23,7 @@ export default function App() {
     getUser()
       .then((userData) => {
         setUserCountry(userData.country_name);
-        console.log(userCountry);
+        //console.log(userCountry);
         setUserCountryCode(userData.country_code.toLowerCase());
         //console.log(userData);
       })
