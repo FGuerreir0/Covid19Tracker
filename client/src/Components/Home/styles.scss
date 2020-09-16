@@ -51,7 +51,8 @@
     select {
       background-color: black;
       color: red;
-      border-color: red;
+      border-radius: 25px;
+      border: 2px solid red;
       font-size: 16px;
     }
     select:hover {
@@ -79,9 +80,19 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 545px) {
   .grid_container {
     grid-template-columns: auto auto;
+  }
+
+  .grid-item {
+    margin: 15px;
+  }
+}
+
+@media (max-width: 345px) {
+  .grid_container {
+    grid-template-columns: auto;
   }
 
   .grid-item {

@@ -86,7 +86,7 @@ export default function App() {
 
       <div className='information_box'>
         <div>
-          <h1>Covid-19 Tracker</h1>
+          <h1>COVID-19 TRACKER</h1>
           {userCountryCode.length > 0 && userCountry && (
             <h2>
               Welcome user from {userCountry}! <FlagIcon code={userCountryCode} size={'lg'} />
