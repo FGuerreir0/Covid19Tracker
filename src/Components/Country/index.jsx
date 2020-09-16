@@ -73,7 +73,7 @@ export default function Country(props) {
           <div>
             <p>Total Cases</p>
             <p className='big_number'>{countryData.cases}</p>
-            {countryData.updated > Date.now() ? (
+            {yesterdayData.updated < Date.now() ? (
               <p> + {countryData.todayCases}</p>
             ) : (
               <p> + {yesterdayData.todayCases}</p>
@@ -84,7 +84,7 @@ export default function Country(props) {
           <div>
             <p>Total Recovered</p>
             <p className='big_number'>{countryData.recovered}</p>
-            {countryData.updated > Date.now() ? (
+            {yesterdayData.updated < Date.now() ? (
               <p> + {countryData.todayRecovered}</p>
             ) : (
               <p> + {yesterdayData.todayRecovered}</p>
@@ -95,7 +95,7 @@ export default function Country(props) {
           <div>
             <p>Total Deaths</p>
             <p className='big_number'>{countryData.deaths}</p>
-            {countryData.updated > Date.now() ? (
+            {yesterdayData.updated < Date.now() ? (
               <p> + {countryData.todayDeaths}</p>
             ) : (
               <p> + {yesterdayData.todayDeaths}</p>
