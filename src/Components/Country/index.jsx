@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../Home/styles.scss';
 
+//IMPORT COMPONENT
+import LineChart from '../LineChart/index';
+
+import PieChart from '../PieChart/index';
+
 //IMPORT SERVICE
 import { getCountryData, allCountries, getYesterdayCountryData } from '../../services/diseaseApi';
 
@@ -49,6 +54,8 @@ export default function Country(props) {
     setCountry(event.target.value);
   };
 
+  //VIEW
+
   return (
     <div className='information_details'>
       <div className='information_sub_title'>
@@ -68,38 +75,62 @@ export default function Country(props) {
           )}
         </p>
       </div>
-      <div className='grid_container'>
-        <div className='grid-item'>
-          <div>
-            <p>Total Cases</p>
-            <p className='big_number'>{countryData.cases}</p>
-            {yesterdayData.updated < Date.now() ? (
-              <p> + {countryData.todayCases}</p>
-            ) : (
-              <p> + {yesterdayData.todayCases}</p>
-            )}
+      <div className='grid_principal_container'>
+        <div className='grid_container'>
+          <div className='grid-item'>
+            <div>
+              <p>Total Cases</p>
+              <p className='big_number'>{countryData.cases}</p>
+              {countryData.todayCases !== 0 &&
+              countryData.todayRecovered !== 0 &&
+              countryData.todayDeaths !== 0 ? (
+                <p> + {countryData.todayCases}</p>
+              ) : (
+                <p> + {yesterdayData.todayCases}</p>
+              )}
+            </div>
+          </div>
+          <div className='grid-item'>
+            <div>
+              <p>Total Recovered</p>
+              <p className='big_number'>{countryData.recovered}</p>
+              {countryData.todayCases !== 0 &&
+              countryData.todayRecovered !== 0 &&
+              countryData.todayDeaths !== 0 ? (
+                <p> + {countryData.todayRecovered}</p>
+              ) : (
+                <p> + {yesterdayData.todayRecovered}</p>
+              )}
+            </div>
+          </div>
+          <div className='grid-item'>
+            <div>
+              <p>Total Deaths</p>
+              <p className='big_number'>{countryData.deaths}</p>
+              {countryData.todayCases !== 0 &&
+              countryData.todayRecovered !== 0 &&
+              countryData.todayDeaths !== 0 ? (
+                <p> + {countryData.todayDeaths}</p>
+              ) : (
+                <p> + {yesterdayData.todayDeaths}</p>
+              )}
+            </div>
+          </div>
+          <div className='grid-item grid-item-active'>
+            <div>
+              <p>Active</p>
+              <p className='big_number'>{countryData.active}</p>
+            </div>
           </div>
         </div>
-        <div className='grid-item'>
-          <div>
-            <p>Total Recovered</p>
-            <p className='big_number'>{countryData.recovered}</p>
-            {yesterdayData.updated < Date.now() ? (
-              <p> + {countryData.todayRecovered}</p>
-            ) : (
-              <p> + {yesterdayData.todayRecovered}</p>
-            )}
+
+        <div className='grid_chart_container'>
+          <div className='grid_chart_item'>
+            <LineChart param={country} />
           </div>
-        </div>
-        <div className='grid-item'>
-          <div>
-            <p>Total Deaths</p>
-            <p className='big_number'>{countryData.deaths}</p>
-            {yesterdayData.updated < Date.now() ? (
-              <p> + {countryData.todayDeaths}</p>
-            ) : (
-              <p> + {yesterdayData.todayDeaths}</p>
-            )}
+
+          <div className='grid_chart_item'>
+            <PieChart countryData={countryData} />
           </div>
         </div>
       </div>

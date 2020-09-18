@@ -12,6 +12,25 @@ const allData = () => {
   });
 };
 
+const history = (param) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`https://disease.sh/v3/covid-19/historical/${param.param}?lastdays=360`)
+      .then((result) => {
+        if (param.param !== 'all') {
+          const all = Object(result.data.timeline);
+          console.log(all);
+          resolve(all);
+        } else {
+          const all = Object(result.data);
+          console.log(all);
+          resolve(all);
+        }
+      })
+      .catch((error) => reject(error));
+  });
+};
+
 const allCountries = () => {
   return new Promise((resolve, reject) => {
     axios
@@ -48,4 +67,4 @@ const getYesterdayCountryData = (country) => {
   });
 };
 
-export { allData, getCountryData, allCountries, getYesterdayCountryData };
+export { allData, getCountryData, allCountries, getYesterdayCountryData, history };
