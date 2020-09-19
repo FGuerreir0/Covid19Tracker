@@ -9,7 +9,7 @@ const options = {
     position: 'top',
     labels: {
       fontColor: 'black',
-      fontSize: 12,
+      fontSize: 10,
     },
   },
   elements: {
