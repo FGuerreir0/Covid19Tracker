@@ -126,11 +126,10 @@ export default function Country(props) {
 
         <div className='grid_chart_container'>
           <div className='grid_chart_item'>
-            <LineChart param={country} />
-          </div>
-
-          <div className='grid_chart_item'>
             <PieChart countryData={countryData} />
+          </div>
+          <div className='grid_chart_item'>
+            <LineChart param={country} />
           </div>
         </div>
       </div>

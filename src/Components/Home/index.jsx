@@ -10,14 +10,24 @@ import { getUser } from '../../services/userCountry';
 
 //IMPORT NPM PACKAGES
 import Particles from 'react-particles-js';
+
 import Coranavirus from './coronavirus.png';
+import Safety from './safety.png';
+import Symptons from './symptons.jpg';
+
 import FlagIconFactory from 'react-flag-icon-css';
+import Modal from 'react-modal';
 
 const FlagIcon = FlagIconFactory(React, { useCssModules: false });
 
 export default function App() {
   const [userCountry, setUserCountry] = useState({});
   const [userCountryCode, setUserCountryCode] = useState({});
+  const [show, setShow] = useState(false);
+
+  function display() {
+    setShow(true);
+  }
 
   useEffect(() => {
     getUser()
@@ -85,19 +95,46 @@ export default function App() {
       ></Particles>
 
       <div className='information_box'>
-        <div>
-          <h1>COVID-19 TRACKER</h1>
-          {userCountryCode.length > 0 && userCountry && (
-            <h2>
-              Welcome user from {userCountry}! <FlagIcon code={userCountryCode} size={'lg'} />
-            </h2>
-          )}
+        <div className='navbar'>
+          <div className='title'>
+            <h1>COVID-19 TRACKER </h1>
+            {/*{userCountryCode.length > 0 && userCountry && (
+              <h2>
+                - Welcome user from {userCountry}! <FlagIcon code={userCountryCode} size={'lg'} />
+              </h2>
+            )}*/}
+          </div>
+          <div className='information_button'>
+            <i class='fas fa-comment-medical' onClick={() => display()}></i>
+          </div>
         </div>
 
         <World />
         {userCountry.length > 0 && <Country userCountry={userCountry} />}
 
         {/* COLOCAR UM ELSE CASO NÃO FAÇA LOCALIZAÇÃO DE DISPOSITIVO */}
+      </div>
+      <div className='modal_position'>
+        <Modal
+          isOpen={show}
+          onRequestClose={() => setShow(false)}
+          className='Modal'
+          overlayClassName='Overlay'
+        >
+          <div>
+            <div className='modal_header'>
+              <h3>Protect Yourself & Others</h3>
+              <div style={{ cursor: 'pointer', color: 'red' }}>
+                <i class='far fa-times-circle' onClick={() => setShow(false)}></i>
+              </div>
+            </div>
+
+            <div className='modal_content'>
+              <img src={Safety} alt='Safety Measures' />
+              <img src={Symptons} alt='Symptons Covid' />
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   );

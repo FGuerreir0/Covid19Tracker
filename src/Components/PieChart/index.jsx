@@ -28,9 +28,9 @@ export default function PieChart(props) {
               label: '',
               data: [cases, recovered, deaths],
               backgroundColor: [
-                'rgba(255, 99, 132, 0.7)',
-                'rgba(75, 192, 192, 0.8)',
-                'rgba(0, 0, 0, 0.8)',
+                'rgba(255, 99, 132, 0.9)',
+                'rgba(75, 192, 192, 0.9)',
+                'rgba(0, 0, 0, 0.9)',
               ],
               borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)', 'rgba(0, 0, 0, 1)'],
               borderWidth: 1,
@@ -40,6 +40,11 @@ export default function PieChart(props) {
         options={{
           legend: {
             position: 'right',
+            labels: {
+              fontColor: 'black',
+              fontSize: 15,
+              fontStyle: 'bold',
+            },
           },
           responsive: true,
           maintainAspectRatio: true,

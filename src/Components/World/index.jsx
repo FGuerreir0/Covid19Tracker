@@ -53,7 +53,7 @@ export default function World() {
         </div>
         <div className='grid_chart_container'>
           <div className='grid_chart_item'>
-            <p>something</p>
+            <p>Line Chart</p>
           </div>
         </div>
       </div>
