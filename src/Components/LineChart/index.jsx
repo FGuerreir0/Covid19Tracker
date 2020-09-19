@@ -81,17 +81,21 @@ export default function PieChart(props) {
   const [cases, setCases] = useState();
   const [recovered, setRecovered] = useState();
   const [deaths, setDeaths] = useState();
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      history(props.country).then((response) => {
-        let chartCasesData = buildCasesChart(response.cases);
-        setCases(chartCasesData);
-        chartCasesData = buildCasesChart(response.recovered);
-        setRecovered(chartCasesData);
-        chartCasesData = buildCasesChart(response.deaths);
-        setDeaths(chartCasesData);
-      });
+      history(props.country)
+        .then((response) => {
+          let chartCasesData = buildCasesChart(response.cases);
+          setCases(chartCasesData);
+          chartCasesData = buildCasesChart(response.recovered);
+          setRecovered(chartCasesData);
+          chartCasesData = buildCasesChart(response.deaths);
+          setDeaths(chartCasesData);
+          setShow(true);
+        })
+        .catch((error) => setShow(false));
     };
 
     fetchData();
@@ -99,28 +103,34 @@ export default function PieChart(props) {
 
   return (
     <div style={{ cursor: 'pointer' }}>
-      <Line
-        data={{
-          datasets: [
-            {
-              label: 'Cases',
-              borderColor: 'red',
-              data: cases,
-            },
-            {
-              label: 'Deaths',
-              borderColor: 'black',
-              data: deaths,
-            },
-            {
-              label: 'Recovered',
-              borderColor: 'green',
-              data: recovered,
-            },
-          ],
-        }}
-        options={options}
-      />
+      {show ? (
+        <Line
+          data={{
+            datasets: [
+              {
+                label: 'Cases',
+                borderColor: 'red',
+                data: cases,
+              },
+              {
+                label: 'Deaths',
+                borderColor: 'black',
+                data: deaths,
+              },
+              {
+                label: 'Recovered',
+                borderColor: 'green',
+                data: recovered,
+              },
+            ],
+          }}
+          options={options}
+        />
+      ) : (
+        <p style={{ fontSize: '15px' }}>
+          No data enough to show at this moment to do a line chart{' '}
+        </p>
+      )}
     </div>
   );
 }
