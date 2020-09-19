@@ -39,7 +39,7 @@ export default function PieChart(props) {
             position: 'right',
             labels: {
               fontColor: 'black',
-              fontSize: 15,
+              fontSize: 12,
             },
           },
           responsive: true,
