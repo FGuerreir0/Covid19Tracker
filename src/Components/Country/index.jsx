@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Home/styles.scss';
 
 //IMPORT COMPONENT
-import LineChart from '../LineChart/index';
+import LineChart from '../LineChart/index.jsx';
 
 import PieChart from '../PieChart/index';
 
@@ -23,7 +23,7 @@ export default function Country(props) {
   useEffect(() => {
     allCountries()
       .then((countries) => {
-        console.log(countries);
+        // console.log(countries);
         setCountries(countries);
       })
       .catch((error) => console.log(error));
@@ -33,7 +33,6 @@ export default function Country(props) {
   useEffect(() => {
     getCountryData(country)
       .then((countryData) => {
-        console.log(countryData);
         setcountryData(countryData);
       })
       .catch((error) => console.log(error));
@@ -50,7 +49,7 @@ export default function Country(props) {
   //HANDLE SELECT CHANGE
   const handleSelectChange = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    //console.log(event.target.value);
     setCountry(event.target.value);
   };
 
@@ -129,7 +128,7 @@ export default function Country(props) {
             <PieChart countryData={countryData} />
           </div>
           <div className='grid_chart_item'>
-            <LineChart param={country} />
+            <LineChart country={country} />
           </div>
         </div>
       </div>

@@ -3,22 +3,19 @@ import { Pie } from 'react-chartjs-2';
 
 export default function PieChart(props) {
   console.log(props);
-  const [lineData, setLineData] = useState(props.countryData);
 
   const [cases, setCases] = useState();
   const [recovered, setRecovered] = useState();
   const [deaths, setDeaths] = useState();
 
   useEffect(() => {
-    setLineData(props.countryData);
-
     setCases(props.countryData.active);
     setRecovered(props.countryData.recovered);
     setDeaths(props.countryData.deaths);
   }, [props.countryData]);
 
   return (
-    <div>
+    <div style={{ cursor: 'pointer' }}>
       <Pie
         // height={300}
         data={{
@@ -43,7 +40,6 @@ export default function PieChart(props) {
             labels: {
               fontColor: 'black',
               fontSize: 15,
-              fontStyle: 'bold',
             },
           },
           responsive: true,

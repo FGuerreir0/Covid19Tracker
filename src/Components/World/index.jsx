@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Home/styles.scss';
 
 //IMPORT COMPONENT
-import LineChart from '../LineChart/chart test';
+import LineChart from '../LineChart';
 
 //IMPORT SERVICE
 import { allData } from '../../services/diseaseApi';
@@ -51,9 +51,9 @@ export default function World() {
             </div>
           </div>
         </div>
-        <div className='grid_chart_container'>
+        <div className='grid_world_chart_container'>
           <div className='grid_chart_item'>
-            <p>Line Chart</p>
+            <LineChart country={'all'} />
           </div>
         </div>
       </div>

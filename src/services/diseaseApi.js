@@ -15,15 +15,15 @@ const allData = () => {
 const history = (param) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`https://disease.sh/v3/covid-19/historical/${param.param}?lastdays=360`)
+      .get(`https://disease.sh/v3/covid-19/historical/${param}?lastdays=360`)
       .then((result) => {
-        if (param.param !== 'all') {
+        if (param !== 'all') {
           const all = Object(result.data.timeline);
           console.log(all);
           resolve(all);
         } else {
           const all = Object(result.data);
-          console.log(all);
+          console.log('entrou em api all', all);
           resolve(all);
         }
       })

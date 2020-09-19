@@ -2,27 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './styles.scss';
 
 //IMPORT COMPONENTS
-import World from '../World/index';
-import Country from '../Country/index';
+import NavBar from '../NavBar';
+import World from '../World';
+import Country from '../Country';
 
 //IMPORT SERVICE
 import { getUser } from '../../services/userCountry';
 
 //IMPORT NPM PACKAGES
 import Particles from 'react-particles-js';
-
-import Coranavirus from './coronavirus.png';
-import Safety from './safety.png';
-import Symptons from './symptons.jpg';
-
-import FlagIconFactory from 'react-flag-icon-css';
+//import FlagIconFactory from 'react-flag-icon-css';
 import Modal from 'react-modal';
 
-const FlagIcon = FlagIconFactory(React, { useCssModules: false });
+//IMPORT IMAGES
+import Coranavirus from './public/coronavirus.png';
+import Safety from './public/safety.png';
+import Symptons from './public/symptons.jpg';
+
+//const FlagIcon = FlagIconFactory(React, { useCssModules: false });
 
 export default function App() {
   const [userCountry, setUserCountry] = useState({});
-  const [userCountryCode, setUserCountryCode] = useState({});
+  //const [userCountryCode, setUserCountryCode] = useState({});
   const [show, setShow] = useState(false);
 
   function display() {
@@ -34,7 +35,7 @@ export default function App() {
       .then((userData) => {
         setUserCountry(userData.country_name);
         //console.log(userCountry);
-        setUserCountryCode(userData.country_code.toLowerCase());
+        //    setUserCountryCode(userData.country_code.toLowerCase());
         //console.log(userData);
       })
       .catch((error) => console.log(error));
@@ -95,25 +96,12 @@ export default function App() {
       ></Particles>
 
       <div className='information_box'>
-        <div className='navbar'>
-          <div className='title'>
-            <h1>COVID-19 TRACKER </h1>
-            {/*{userCountryCode.length > 0 && userCountry && (
-              <h2>
-                - Welcome user from {userCountry}! <FlagIcon code={userCountryCode} size={'lg'} />
-              </h2>
-            )}*/}
-          </div>
-          <div className='information_button'>
-            <i class='fas fa-comment-medical' onClick={() => display()}></i>
-          </div>
-        </div>
-
+        <NavBar display={() => display()} />
         <World />
         {userCountry.length > 0 && <Country userCountry={userCountry} />}
-
-        {/* COLOCAR UM ELSE CASO NÃO FAÇA LOCALIZAÇÃO DE DISPOSITIVO */}
       </div>
+
+      {/*MODAL CONFIGURATION */}
       <div className='modal_position'>
         <Modal
           isOpen={show}
