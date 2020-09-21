@@ -1,0 +1,39 @@
+.footer {
+  position: absolute;
+  margin-top: 50px;
+  height: 35px;
+  width: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+a {
+  font-size: 11px;
+  color: lightcoral;
+  text-decoration: none;
+}
+
+@media (min-width: 930px) {
+  .footer {
+    font-size: 15px;
+  }
+
+  a {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+  }
+
+  a :hover {
+    cursor: pointer;
+    color: lightcoral;
+    font-size: 16px;
+
+    transition: all 0.7s ease-in;
+  }
+}

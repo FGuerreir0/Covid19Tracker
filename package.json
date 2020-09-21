@@ -13,6 +13,7 @@
     "react": "^16.13.1",
     "react-chartjs-2": "^2.10.0",
     "react-dom": "^16.13.1",
+    "react-external-link": "^1.1.1",
     "react-flag-icon-css": "^1.0.25",
     "react-modal": "^3.11.2",
     "react-particles-js": "^3.3.0",
