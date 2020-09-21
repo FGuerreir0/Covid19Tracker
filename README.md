@@ -1,6 +1,8 @@
 # Covid19Tracker
 
-Covid-19 tracker on the world, made with React!
+Covid-19 tracker made with React!
+
+BETTER README SOON...
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
