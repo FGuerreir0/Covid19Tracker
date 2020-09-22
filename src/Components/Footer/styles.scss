@@ -1,4 +1,5 @@
 .footer {
+  padding: 5px 0 7px 0;
   position: absolute;
   margin-top: 50px;
   height: 35px;
@@ -22,11 +23,11 @@ a {
 @media (min-width: 930px) {
   .footer {
     letter-spacing: 3px;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   a {
-    font-size: 14px;
+    font-size: 15px;
     color: white;
     text-decoration: none;
   }
@@ -36,6 +37,6 @@ a {
     color: lightcoral;
     font-size: 15px;
 
-    transition: all 0.7s ease-in;
+    transition: all 0.5s ease-in;
   }
 }

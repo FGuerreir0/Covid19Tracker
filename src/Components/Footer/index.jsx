@@ -14,6 +14,7 @@ export default function Footer() {
         <ExternalLink href='https://www.linkedin.com/in/fabiofsguerreiro/'>
           <span>Fábio Guerreiro</span>
         </ExternalLink>{' '}
+        @ 2020{' '}
         <span role='img' aria-label='Dev with Mask'>
           😷
         </span>{' '}

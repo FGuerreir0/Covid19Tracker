@@ -48,7 +48,7 @@ export default function App() {
         params={{
           particles: {
             number: {
-              value: 25,
+              value: Math.floor(Math.random() * 25 - 15 + 1) + 15,
               density: {
                 enable: true,
                 value_area: 800,
@@ -58,7 +58,7 @@ export default function App() {
               enable: false,
             },
             move: {
-              speed: 10,
+              speed: 3,
               random: true,
             },
             shape: {
