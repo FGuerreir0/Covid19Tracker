@@ -10,16 +10,18 @@
   justify-content: center;
   align-items: center;
   font-size: 10px;
+  letter-spacing: 1px;
 }
 
 a {
-  font-size: 11px;
+  font-size: 9px;
   color: lightcoral;
   text-decoration: none;
 }
 
 @media (min-width: 930px) {
   .footer {
+    letter-spacing: 3px;
     font-size: 16px;
   }
 
